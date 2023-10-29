@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+
+    <a href="{% url 'addProject' %}"> Add Project </a>
+        <h1>This list of project page </h1>
+       
+        <table>
+            <tr>
+                <th>Id</th> 
+                <th>Title</th>
+                <th>vote_total</th>
+                <th>vote_ratio</th>
+                <th>created</th>
+                <th>Link</th>
+            </tr>
+
+            {% for item in projects %}
+            <tr> 
+                    <th>{{ item.id }}</th>
+                    <th>{{ item.title }}</th>
+                    <th>{{ item.vote_total }}</th>
+                    <th>{{ item.vote_ratio  }}</th>
+                    <th>{{ item.created }}</th>
+                    <th>  <strong> <a href="{% url 'index' item.id %}"> view </a><br> </th>
+                    <th>  <strong> <a href="{% url 'update_form' item.id %}"> Edit </a><br> </th>
+                    <th>  <strong> <a href="{% url 'delete_form' item.id %}"> Delete </a><br> </th>        
+                        
+                </tr>
+
+            
+                
+            {% endfor %}
+
+        
+
+        </table>
+
+    
+    
+</body>
+</html>
